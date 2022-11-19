@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<table border="1">
+  <tr>
+    <th>Album Profile Img</th>
+    <th>Album Name</th>
+    <th>Album Genre</th>
+    <th>Album label</th>
+    <th>Album Released</th>
+    <th>Album Producer</th>
+    <th>Album Songs</th>
+    <th>Album Artist</th>
+    <th colspan="2">Actions</th>
+  </tr>
+
+  {% for i in el %} {% for album_song in i.album_songs.all%} {%for artist in
+  i.album_artist.all %}
+  <tr>
+    <td>
+      <img
+        src="{{ i.album_profile.url }}"
+        alt=""
+        class=""
+        style="height: 100px; width: 100px"
+      />
+    </td>
+    <td>{{i.album_name}}</td>
+    <td>{{i.album_genre}}</td>
+    <td>{{i.album_released}}</td>
+    <td>{{i.album_label}}</td>
+    <td>{{i.album_producer}}</td>
+    <td>{{album_song.song_name}}</td>
+    <td>{{artist.artist_name}}</td>
+    <td><a href="delete_album/{{i.id}}">Delete</a></td>
+    <td><a href="update_album/{{i.id}}">Update</a></td>
+  </tr>
+  {% endfor %} {% endfor %} {% endfor %}
+</table>

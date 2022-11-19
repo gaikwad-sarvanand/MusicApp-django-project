@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{%extends 'master.html'%} {% block content %}
+<h1>Hello World</h1>
+
+<h1><a href="{{'add_artist' }}">Add Artist</a></h1>
+
+<h1><a href="{{ 'artist_list' }}">Artist List</a></h1>
+<h1><a href="{{'add_song' }}">Add Song</a></h1>
+<h1><a href="{{ 'song_list' }}">Song List</a></h1>
+<h1><a href="{{'addalbum' }}">Add Album</a></h1>
+<h1><a href="{{ 'albumlist' }}">Album List</a></h1>
+{%endblock%}

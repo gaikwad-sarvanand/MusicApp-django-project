@@ -1,0 +1,45 @@
+<!DOCTYPE html> {% extends 'master.html'%} {%block content %}
+<h1>These are all songs</h1>
+<br />
+<form method="post">
+  {%csrf_token%}
+  <textarea
+    rows="2"
+    cols="60"
+    name="search"
+    placeholder="search song"
+  ></textarea>
+  <input type="submit" value="Search" />
+</form>
+<br />
+
+<div class="row g-4">
+  {%for i in el%}
+  <div class="col-md-6 col-lg-4 col-xl-3">
+    <div class="card" style="width: 18rem">
+      <img
+        src="{{i.song_profile_img}}"
+        class="card-img-top"
+        alt="{{i.song_name}}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{i}}</h5>
+        <div>
+          <p class="card-text overflow-auto">
+            <audio controls id="player">
+              <source src="{{i.song_file.url}}" type="audio/wav" />
+              Your browser does not support the audio element.
+            </audio>
+          </p>
+        </div>
+        <p class="card-text">
+          <!-- {%for song_artist in i.artists.all%} {{song_artist}}{%endfor%} -->
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+
+{%endblock%}

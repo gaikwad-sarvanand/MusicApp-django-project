@@ -1,0 +1,35 @@
+<!DOCTYPE html> {% extends 'master.html'%} {%block content %}
+<h1>These are all artists</h1>
+<br />
+
+<form method="post">
+  {%csrf_token%}
+  <textarea
+    rows="2"
+    cols="60"
+    name="search"
+    placeholder="search artist"
+  ></textarea>
+  <input type="submit" value="Search" />
+</form>
+<br />
+<div class="row g-4">
+  {%for i in el%}
+  <div class="col-md-6 col-lg-4 col-xl-3">
+    <div class="card" style="width: 18rem">
+      <img
+        src="{{i.artist_profile_img}}"
+        class="card-img-top"
+        alt="{{i.artist_profile_img}}"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{i}}</h5>
+        <p class="card-text">{{i.artist_description}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+
+{%endblock%}

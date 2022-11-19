@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<table border="1">
+  <tr>
+    <th>Song Id</th>
+    <th>Song Profile Img</th>
+    <th>Song Name</th>
+    <th>Song Length</th>
+    <th>Song Genre</th>
+    <th>Song File</th>
+    <th>Song Released</th>
+    <th>Song Writer</th>
+    <th>Song Label</th>
+    <th>Artist Name</th>
+    <th colspan="2">Actions</th>
+  </tr>
+  {% for i in el %} {% for artist in i.artists.all %}
+
+  <tr>
+    <td>{{i.id}}</td>
+    <td>
+      <img
+        src="{{ i.song_profile_img.url }}"
+        alt=""
+        class=""
+        style="height: 100px; width: 100px"
+      />
+    </td>
+    <td>{{i.song_name}}</td>
+    <td>{{i.song_length}}</td>
+    <td>{{i.song_genre}}</td>
+    <td>
+      <audio controls id="player">
+        <source src="{{i.song_file.url}}" type="audio/wav" />
+        Your browser does not support the audio element.
+      </audio>
+    </td>
+    <td>{{i.song_released}}</td>
+    <td>{{i.song_writer}}</td>
+    <td>{{i.song_label}}</td>
+    <td>{{artist.artist_name}}</td>
+    <td><a href="delete_song/{{i.id}}">Delete</a></td>
+    <td><a href="update_song/{{i.id}}">Update</a></td>
+  </tr>
+  {% endfor %} {% endfor %}
+</table>

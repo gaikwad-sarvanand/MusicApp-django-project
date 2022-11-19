@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<table border="2">
+  <tr>
+    <th>Artist Id</th>
+    <th>Artist Profile</th>
+    <th>Artist Name</th>
+    <th>Artist Description</th>
+    <th colspan="2">Actions</th>
+  </tr>
+  {% for i in el %}
+  <tr>
+    <td>{{i.id}}</td>
+    <td>
+      <img
+        src="{{ i.artist_profile_img.url }}"
+        alt=""
+        class=""
+        style="height: 100px; width: 100px"
+      />
+    </td>
+    <td>{{i.artist_name}}</td>
+    <td>{{i.artist_description}}</td>
+    <td><a href="delete_artist?id={{i.id}}">Delete</a></td>
+    <td><a href="update_artist/{{i.id}}">Update</a></td>
+  </tr>
+  {% endfor %}
+</table>

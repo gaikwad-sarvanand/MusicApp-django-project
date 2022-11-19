@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{%extends 'master.html'%} {% block content %} {% if form.errors %}
+<p>{{errors}}</p>
+{% endif %}
+<div class="shadow p-4 mb-5 bg-body rounded">
+  <h1>Registration</h1>
+  <form action="" method="post">
+    {% csrf_token %} {{form.as_p}}
+
+    <!-- 
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  {{form.username.label}} {{form.username}} {{form.password1.label}}
+  {{form.password1}} {{form.password2.label}} {{form.password2}} -->
+    <input class="btn btn-secondary" type="submit" value="Submit" />
+  </form>
+</div>
+{% endblock%}
